@@ -1,26 +1,26 @@
 #include <Servo.h>
 
-int sensorPin = A0; // пін для зчитування аналогового сигналу від датчика газу
-int ledPin = 9; // пін для підключення світлодіода
-Servo myservo; // змінна для серводвигуна
+int sensorPin = A0;
+int ledPin = 9;
+Servo myservo
 
 void setup() {
-  pinMode(sensorPin, INPUT); // встановлюємо пін для зчитування датчика газу як вхід
-  pinMode(ledPin, OUTPUT); // встановлюємо пін для світлодіода як вихід
-  myservo.attach(13); // встановлюємо пін для сервоприводу 
-  digitalWrite(ledPin, LOW); // вимикаємо світлодіод
+  pinMode(sensorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  myservo.attach(13);
+  digitalWrite(ledPin, LOW);
 }
 
 void loop() {
-  int sensorValue = analogRead(sensorPin); // зчитуємо значення з датчика газу
+  int sensorValue = analogRead(sensorPin);
 
-  if (sensorValue > 500) { // якщо зчитане значення більше 500, то серводвигун повертається на 90 градусів та вмикається світлодіод
-    digitalWrite(ledPin, HIGH); // вмикаємо світлодіод
+  if (sensorValue > 500) {
+    digitalWrite(ledPin, HIGH);
     myservo.write(90);
       delay(15);
     }
-  else { // якщо зчитане значення менше 500, то серводвигун повертається на 0 градусів та вимикається світлодіод
-    digitalWrite(ledPin, LOW); // вимикаємо світлодіод
+  else {
+    digitalWrite(ledPin, LOW);
     myservo.write(0);
       delay(15);
     }
