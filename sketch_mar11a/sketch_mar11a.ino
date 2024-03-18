@@ -6,7 +6,7 @@
 #define PIN_READWRITE 10
 #define PIN_CONTRAST 12
 
-#define  SPRITE_RUN1 1
+#define SPRITE_RUN1 1
 #define SPRITE_RUN2 2
 #define SPRITE_JUMP 3
 #define SPRITE_JUMP_UPPER  '.'         
@@ -240,7 +240,8 @@ void setup(){
   
   initializeGraphics();
   
-  lcd.begin(16,  2);
+  lcd.init();
+  lcd.backlight();
 }
 
 void loop(){
